@@ -1,0 +1,17 @@
+@if (isLoading)
+{
+    <Chase />
+}
+else
+{
+    <h3>Colonies</h3>
+    <DataGrid ElementId="ColoniesGrid-DataGrid-0" TItem="Colony" Data="@colonies" Striped="true" Bordered="true" Editable="true" PageSize="30" ShowPager="true" Narrow="true" Resizable="true" ResizeMode="TableResizeMode.Columns"  RowSelectable="@(v => false)">
+
+        <DataGridColumn ElementId="ColoniesGrid-DataGridColumn-0" TItem="Colony" Field="ColonyName" Caption="Colony" />
+        <DataGridCheckColumn ElementId="ColoniesGrid-DataGridCheckColumn-0" TItem="Colony" Field="Archived" Caption="Archived">
+            <DisplayTemplate>
+                <Check ElementId="ColoniesGrid-Check-0" TValue="bool" Checked="@context.Archived" onclick="return false;" Style="margin-left:10px"/>
+            </DisplayTemplate>
+        </DataGridCheckColumn>
+    </DataGrid>
+}
